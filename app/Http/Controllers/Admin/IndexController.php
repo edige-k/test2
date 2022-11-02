@@ -15,4 +15,8 @@ class IndexController extends Controller
     {
         return view('client.index');
     }
+    public function business()
+    {
+        return view('business.index');
+    }
 }

@@ -64,7 +64,7 @@ class BusinessController extends Controller
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
-        $user->assignRole($request->role);
+        $user->assignRole('business');
         return to_route('admin.businesses.index')->with('success','Business created successfully');
     }
 

@@ -16,21 +16,32 @@
                         {{ __('Dashboard') }}
                     </x-nav-link>
                 </div>
-                @hasrole('admin')
+                @role('admin')
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('admin.index')" :active="request()->routeIs('admin.index')">
                         {{ __('Admin') }}
                     </x-nav-link>
                 </div>
+
+
                 @endrole
-               @else
-                @hasrole('client')
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('client.index')" :active="request()->routeIs('client.index')">
-                        {{ __('мой личный счет') }}
-                    </x-nav-link>
-                </div>
-                @endrole
+
+                @role('client')
+                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                        <x-nav-link :href="route('client.index')" :active="request()->routeIs('client.index')">
+                            {{ __('мой личный счет') }}
+                        </x-nav-link>
+                    </div>
+                    @endrole
+
+                    @role('business')
+                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                        <x-nav-link :href="route('business.index')" :active="request()->routeIs('business.index')">
+                            {{ __('мой банк') }}
+                        </x-nav-link>
+                    </div>
+
+                    @endrole
 
 
 

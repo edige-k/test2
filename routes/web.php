@@ -37,5 +37,8 @@ Route::middleware(['auth', 'role:admin'])->name('admin.')->prefix('admin')->grou
 Route::middleware(['auth', 'role:client'])->name('client.')->prefix('client')->group(function (){
     Route::get('/', [IndexController::class, 'client'])->name('index');
 });
+Route::middleware(['auth', 'role:business'])->name('business.')->prefix('business')->group(function (){
+    Route::get('/', [IndexController::class, 'business'])->name('index');
+});
 
 require __DIR__.'/auth.php';
