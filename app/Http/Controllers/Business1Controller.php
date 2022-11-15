@@ -10,7 +10,7 @@ use App\service\PaymentService;
 use Illuminate\Support\Facades\Http;
 use Nette\Utils\Random;
 use Illuminate\Support\Facades\Auth;
-class BusinessController extends Controller
+class Business1Controller extends Controller
 {
     public function index()
     {

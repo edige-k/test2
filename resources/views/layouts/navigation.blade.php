@@ -22,11 +22,22 @@
                         {{ __('Admin') }}
                     </x-nav-link>
                 </div>
+                @else
+                    @role('business')
+                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                        <x-nav-link a href="{{route('business.index' )}}" :active="request()->routeIs('business.index')">
+                            {{ __('мой банк') }}
+                        </x-nav-link>
+                    </div>
+
+                    @endrole
 
 
-                @endrole
 
-                @role('client')
+                        @endrole
+
+
+                    @role('client')
                     <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                         <x-nav-link :href="route('client.index')" :active="request()->routeIs('client.index')">
                             {{ __('мой личный счет') }}
@@ -34,14 +45,7 @@
                     </div>
                     @endrole
 
-                    @role('business')
-                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                        <x-nav-link a href="{{route('business.index',Auth::user()->id )}}" :active="request()->routeIs('business.index')">
-                            {{ __('мой банк') }}
-                        </x-nav-link>
-                    </div>
 
-                    @endrole
 
 
 

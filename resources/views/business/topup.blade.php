@@ -11,8 +11,6 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white rounded-lg shadow relative">
                 <div class="flex items-start justify-between p-5 border-b rounded-t">
-                    <h5>Текущий баланс <div>@if(cache()->has('balance')){{cache()->get('balance')}}@else 0 @endif</div>
-                    </h5>
 
                     <h3 class="text-xl font-semibold">
                         Пополнение баланса
@@ -46,37 +44,7 @@
 
             </div>
             <br>
-            <h2>Список транзакции</h2>
-            <br>
-            <table class="table">
-                <thead>
-                <tr>
-                    <th>#id</th>
-                    <th>Сумма</th>
-                    <th>Описание</th>
-                    <th>Статус</th>
-                    <th>Дата</th>
-                </tr>
-                </thead>
-                <tbody>
-                @forelse($transactions as $transaction)
-                    <tr>
-                        <td>{{$transaction->id}}</td>
-                        <td>{{$transaction->amount}}</td>
-                        <td>{{$transaction->description}}</td>
-                        <td>{{$transaction->status}}</td>
-                        <td>{{$transaction->created_at->format('d-m-y H:i')}}</td>
 
-                    </tr>
-                @empty
-                    <tr>
-                        <td>
-                            транзакции нет
-                        </td>
-                    </tr>
-                @endforelse
-                </tbody>
-            </table>
 
         </div>
 
