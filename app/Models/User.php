@@ -9,10 +9,10 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Spatie\Permission\Models\Role;
-
+use Laravel\Cashier\Billable;
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable, HasRoles;
+    use HasApiTokens, HasFactory, Notifiable, HasRoles , Billable;
 
     /**
      * The attributes that are mass assignable.
@@ -53,4 +53,10 @@ class User extends Authenticatable
     public function role(){
         return $this->hasOne(Role::class);
     }
+
+    public function setAuth(string $string, string $string1)
+    {
+
+    }
+
 }

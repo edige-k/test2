@@ -36,7 +36,7 @@
 
                     @role('business')
                     <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                        <x-nav-link :href="route('business.index')" :active="request()->routeIs('business.index')">
+                        <x-nav-link a href="{{route('business.index',Auth::user()->id )}}" :active="request()->routeIs('business.index')">
                             {{ __('мой банк') }}
                         </x-nav-link>
                     </div>

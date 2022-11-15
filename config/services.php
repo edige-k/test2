@@ -31,4 +31,9 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'payment' => [
+        'merchant_id' => env('PAYMENT_MERCHANT_ID'),
+        'secret_key' => env('PAYMENT_SECRET_KEY'),
+    ],
+
 ];

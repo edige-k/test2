@@ -5,7 +5,7 @@ use App\Http\Controllers\Admin\IndexController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\PermissionController;
 use App\Http\Controllers\Admin\ClientController;
-use App\Http\Controllers\Admin\BusinessController;
+use App\Http\Controllers\BusinessController;
 
 
 /*
@@ -38,7 +38,14 @@ Route::middleware(['auth', 'role:client'])->name('client.')->prefix('client')->g
     Route::get('/', [IndexController::class, 'client'])->name('index');
 });
 Route::middleware(['auth', 'role:business'])->name('business.')->prefix('business')->group(function (){
-    Route::get('/', [IndexController::class, 'business'])->name('index');
-});
+    Route::get('/', [BusinessController::class, 'index'])->name('index');
+    Route::get('/topup', [BusinessController::class, 'create'])->name('topup');
+    Route::match(['GET','POST'],'/payments/callback',[BusinessController::class,'callback'])->name('payment.callback');
+    Route::post('/topup/payment', [BusinessController::class, 'store'])->name('payment.store');
+    Route::get('/send-bonus', [BusinessController::class, 'send_bonus'])->name('send_bonus');
+    Route::get('/get-send-bonus/{id}', [BusinessController::class, 'get_send_bonus'])->name('get_send_bonus');
+    Route::post('/send-bonus/{id}', [BusinessController::class, 'post_send_bonus'])->name('post_send_bonus');
 
+
+});
 require __DIR__.'/auth.php';

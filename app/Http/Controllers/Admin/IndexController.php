@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
+use App\Models\User;
+use DB;
+use Illuminate\Support\Facades\Hash;
 class IndexController extends Controller
 {
     public function index()
@@ -15,8 +17,6 @@ class IndexController extends Controller
     {
         return view('client.index');
     }
-    public function business()
-    {
-        return view('business.index');
-    }
+
+
 }
